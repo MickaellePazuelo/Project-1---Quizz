@@ -1,0 +1,66 @@
+ #main-background {
+    color: blue;
+    vertical-align:middle;
+    text-align: left;
+    font-size: 70px;
+    background-image: url(/Friends-logo2.png);
+    height: 30%; 
+    background-size: cover;
+ } 
+
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.btn {
+    display: flex;
+    width: 500px;
+    border-radius: 10px;
+    width: 500px;
+    text-align: center;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 54px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color:violet;
+    color:whitesmoke;
+}
+
+.btnNext {
+    display: inline-block;
+    margin: 0px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 54px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 24px;
+    padding-right: 24px;
+    background-color: darkcyan;
+    color:whitesmoke;
+}
+
+p {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+}
+h1 {
+    font-size: 70px;
+    color: blue;
+}
+
+#questions{
+    align-content: center;
+    color: crimson;
+    text-decoration: underline;
+}
+
