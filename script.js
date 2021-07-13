@@ -37,8 +37,8 @@ function displayQuestion(question) {
       console.log(event.target.innerHTML);
       // 3rd step
       // in button event handlers check if answer is correct
-      if (question.correctAnswer === event.target.innerHTML) {
-        console.log("it s the correct answer !");
+      if (question.correctAnswer === index) {
+        // console.log("it s the correct answer !");
         // 4e step
         // if answer is correct, score++ (OK), randomIndex++
         score++;
@@ -53,31 +53,22 @@ function displayQuestion(question) {
   });
 
   let btn = document.getElementById("btn");
-
-  // 5e step
-  // call display question with the new randomIndex
 }
 
-// Selectionner le bouton next
-// Appeler la fonction displayQuestion en oubliant d'increment
-// L'index de la question avant
 function NextQuestion() {
   // let next = document.querySelector(".btnNext");
   // next.addEventListener("click", function (event) {
-
     questionIndex += 1;
-    if(questions.length <= 3) {
+    if(questionIndex < questions.length) {
       displayQuestion(questions[questionIndex]);
     }else{
         end();
     }
-    
-  // });
 }
 
 displayQuestion(questions[questionIndex]);
 
-//a la fin des 4 questions --> Score final: Congrats : 3/4 !
+//at the end of 4 questions --> final score: "Congrats : ?/4 !""
 
 function end() {
 let finalScore= document.getElementsByClassName("final-score");
