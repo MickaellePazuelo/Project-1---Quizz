@@ -1,17 +1,21 @@
 let questionIndex = 0;
 let score = 0;
-let total = 2;
 
 const questions = [
   {
     title: "What is the name of the manager of Central Perk?",
-    choices: ["A) Gary", "B) Gunther", "C) Jerry", "His name is never pronounced"],
-    correctAnswer: 1,
+    choices: ["Gary", "Gunther", "Jerry", "His name is never pronounced"],
+    correctAnswer: "Gunther",
   },
   {
     title: "In what year did the series Friends first start broadcasting in the Us?",
     choices: ["1990", "1998", "1994", "2002"],
-    correctAnswer: 2,
+    correctAnswer: "1994",
+  },
+  {
+    title: "Which of the characters in the show has a twin sister?",
+    choices: ["Phoebe", "Rachel", "Monica", "Carol"],
+    correctAnswer: "Phoebe",
   },
 ];
 
@@ -19,7 +23,7 @@ function displayQuestion(question) {
   // select title div
   // insert question title in innerhtml / textContent
   let titleDiv = document.getElementById("question-title");
-  titleDiv.textContent = question.title;
+  titleDiv.innerHTML = question.title;
 
   // 1st step
   //select buttons
@@ -29,10 +33,11 @@ function displayQuestion(question) {
     button.innerHTML = question.choices[index];
     // 2nd step
     // find a way to respond to a click when button gets clicked
-    button.addEventListener("click", function () {
+    button.addEventListener("click", function (event) {
+      console.log(event.target.innerHTML);
       // 3rd step
       // in button event handlers check if answer is correct
-      if (question.correctAnswer === index) {
+      if (question.correctAnswer === event.target.innerHTML) {
         console.log("it s the correct answer !");
         // 4e step
         // if answer is correct, score++ (OK), randomIndex++
@@ -42,11 +47,12 @@ function displayQuestion(question) {
         // score = "";
       }
       document.getElementById("score").innerHTML = score;
+
+      NextQuestion();
     });
   });
 
   let btn = document.getElementById("btn");
-
 
   // 5e step
   // call display question with the new randomIndex
@@ -56,14 +62,31 @@ function displayQuestion(question) {
 // Appeler la fonction displayQuestion en oubliant d'increment
 // L'index de la question avant
 function NextQuestion() {
-  let next = document.querySelector(".btnNext");
-  next.addEventListener("click", function (event) {
+  // let next = document.querySelector(".btnNext");
+  // next.addEventListener("click", function (event) {
+
     questionIndex += 1;
-    displayQuestion(questions[questionIndex]);
-  });
+    if(questions.length <= 3) {
+      displayQuestion(questions[questionIndex]);
+    }else{
+        end();
+    }
+    
+  // });
 }
-NextQuestion();
 
 displayQuestion(questions[questionIndex]);
 
-//Accumuler les scores de la Quest1 --> Quest2
+//a la fin des 4 questions --> Score final: Congrats : 3/4 !
+
+function end() {
+let finalScore= document.getElementsByClassName("final-score");
+finalScore.innerHTML = "";
+
+var endh1 = document.createElement("h1");
+
+endh1.innerHTML = "Your score is" + score;
+
+finalScore.appendChild(endh1);
+};
+
