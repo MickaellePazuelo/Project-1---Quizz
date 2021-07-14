@@ -1,5 +1,7 @@
 let questionIndex = 0;
 let score = 0;
+let finalScore = 0;
+// var endh1 = document.createElement("h1");
 
 const questions = [
   {
@@ -22,6 +24,7 @@ const questions = [
 function displayQuestion(question) {
   // select title div
   // insert question title in innerhtml / textContent
+  
   let titleDiv = document.getElementById("question-title");
   titleDiv.innerHTML = question.title;
 
@@ -33,26 +36,7 @@ function displayQuestion(question) {
     button.innerHTML = question.choices[index];
     // 2nd step
     // find a way to respond to a click when button gets clicked
-    button.addEventListener("click", function (event) {
-      console.log(event.target.innerHTML);
-      // 3rd step
-      // in button event handlers check if answer is correct
-      if (question.correctAnswer === index) {
-        // console.log("it s the correct answer !");
-        // 4e step
-        // if answer is correct, score++ (OK), randomIndex++
-        score++;
-      } else {
-        // console.log("Bad news..it s wrong");
-        // score = "";
-      }
-      document.getElementById("score").innerHTML = score;
-
-      NextQuestion();
-    });
   });
-
-  let btn = document.getElementById("btn");
 }
 
 function NextQuestion() {
@@ -63,21 +47,40 @@ function NextQuestion() {
       displayQuestion(questions[questionIndex]);
     }else{
         end();
-    }
-}
+        console.log("score!!");
+    };
+    console.log(questionIndex < questions.length);
+};
 
-displayQuestion(questions[questionIndex]);
+displayQuestion(questions[0]);
 
 //at the end of 4 questions --> final score: "Congrats : ?/4 !""
 
 function end() {
-let finalScore= document.getElementsByClassName("final-score");
-finalScore.innerHTML = "";
+let finalScore= document.querySelector(".display");
+finalScore.remove();
 
-var endh1 = document.createElement("h1");
-
-endh1.innerHTML = "Your score is" + score;
-
-finalScore.appendChild(endh1);
+let endh1 = document.createElement("h1");
+endh1.innerHTML = "Your score is " + score + "/" + questions;
+// return endh1;
+let x = document.querySelector(".final-score");
+x.appendChild(endh1);
+console.log(x);
 };
 
+
+const buttons = document.querySelectorAll(".btn").forEach(button => {
+  button.addEventListener("click", function (event) {
+    console.log(event.target.innerHTML);
+    // 3rd step
+    // in button event handlers check if answer is correct
+    if (questions[questionIndex].correctAnswer === event.target.innerHTML) {
+      // console.log("it s the correct answer !");
+      // 4e step
+      // if answer is correct, score++ (OK), randomIndex++
+      score++;
+      document.getElementById("score").innerHTML = score;
+    }
+    NextQuestion();
+  });
+})
