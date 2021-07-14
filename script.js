@@ -61,7 +61,7 @@ let finalScore= document.querySelector(".display");
 finalScore.remove();
 
 let endh1 = document.createElement("h1");
-endh1.innerHTML = "Your score is " + score + "/" + questions;
+endh1.innerHTML = "Your score is " + score + "/" + questions.length + "!";
 // return endh1;
 let x = document.querySelector(".final-score");
 x.appendChild(endh1);
