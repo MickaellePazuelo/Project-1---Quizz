@@ -12,7 +12,7 @@ body {
   align-items: center;
   justify-items: center;
   min-height: 100vh;
-  background-image: url(/images/Friends_logo.svg.png);
+  background-image: url(./images/Friends_logo.svg.png);
   background-position:top;
   background-size: 100vh;
   background-repeat: no-repeat;
