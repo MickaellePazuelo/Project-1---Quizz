@@ -1,7 +1,6 @@
 let questionIndex = 0;
 let score = 0;
 let finalScore = 0;
-// var endh1 = document.createElement("h1");
 
 const questions = [
   {
@@ -18,6 +17,11 @@ const questions = [
     title: "Which of the characters in the show has a twin sister?",
     choices: ["Phoebe", "Rachel", "Monica", "Carol"],
     correctAnswer: "Phoebe",
+  },
+  {
+    title: "Who are Jack & Judy ?",
+    choices: ["Joey's parents", "Ross and Monica's parents", "Chandler's parents", "Rachel's parents"],
+    correctAnswer: "Ross and Monica's parents",
   },
 ];
 
@@ -40,8 +44,6 @@ function displayQuestion(question) {
 }
 
 function NextQuestion() {
-  // let next = document.querySelector(".btnNext");
-  // next.addEventListener("click", function (event) {
     questionIndex += 1;
     if(questionIndex < questions.length) {
       displayQuestion(questions[questionIndex]);
@@ -62,7 +64,7 @@ finalScore.remove();
 
 let endh1 = document.createElement("h1");
 endh1.innerHTML = "Your score is " + score + "/" + questions.length + "!";
-// return endh1;
+
 let x = document.querySelector(".final-score");
 x.appendChild(endh1);
 console.log(x);

@@ -1,66 +1,79 @@
- #main-background {
-    color: blue;
-    vertical-align:middle;
-    text-align: left;
-    font-size: 70px;
-    background-image: url(/Friends-logo2.png);
-    height: 30%; 
-    background-size: cover;
- } 
+* {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
 
-body{
+body {
+  background-color: rgb(240, 167, 215);
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  min-height: 100vh;
+  background-image: url(/images/Friends_logo.svg.png);
+  background-position:top;
+  background-size: 100vh;
+  background-repeat: no-repeat;
+  background-position-y: 30px;
+}
+.display > .choices1 {
+     
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 3rem auto 3rem;
+    width: 500px;
+}
+
+.display > .btn {
+
+    width: 200px;
+    height: 80px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    margin: .4rem;
+    outline: none;
+    background: #dfe4ea;
+    user-select: none;
+    font-weight: 600;
+}
+
+#score {
+    color: crimson;
+}
+.scorecolor {
+    color: rgb(82, 20, 82);
+    font-size: 25px;
 }
 
 .btn {
     display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
     width: 500px;
     border-radius: 10px;
     width: 500px;
     text-align: center;
     text-align: center;
     font-size: 18px;
-    border-radius: 54px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-left: 24px;
-    padding-right: 24px;
-    background-color:violet;
-    color:whitesmoke;
-}
+    border-radius: 15px;
+    padding: 15px 30px;
+    background-color: rgb(77, 17, 77);
+    color: whitesmoke;
+  } 
 
-.btnNext {
-    display: inline-block;
-    margin: 0px;
-    text-align: center;
-    font-size: 18px;
-    border-radius: 54px;
-    padding-top: 14px;
-    padding-bottom: 14px;
-    padding-left: 24px;
-    padding-right: 24px;
-    background-color: darkcyan;
-    color:whitesmoke;
+h1{
+    font-size: 100px;
+    color:indigo;
+    transform: rotate(-13deg);
+    animation-duration: 3s;
+    animation-name: bounce;
 }
-
-p {
-    display: flex;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    
+@keyframes bounce {
+    from {
+        margin-top: 100%;
+        
+    }
 }
-h1 {
-    font-size: 70px;
-    color: blue;
-}
-
-#questions{
-    align-content: center;
-    color: crimson;
-    text-decoration: underline;
-}
-
